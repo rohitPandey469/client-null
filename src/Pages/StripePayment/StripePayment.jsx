@@ -58,7 +58,7 @@ function StripePayment({ slideIn, handleSlideIn }) {
     };
 
     const response = await fetch(
-      "https://stack-overflow-7tme.vercel.app/api/create-checkout-session",
+      "https://stackoverflow-server-null.onrender.com/api/create-checkout-session",
       {
         method: "POST",
         headers: headers,
