@@ -1,15 +1,29 @@
 import React from "react";
 import "./LeftSidebar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Globe from "../../assets/Globe.svg";
+import { useSelector } from "react-redux";
 
 const LeftSidebar = ({ slideIn, handleSlideIn }) => {
+  const navigate = useNavigate();
+
+  var User = useSelector((state) => state.currentUserReducer);
+
   const slideInStyle = {
     transform: "translateX(0%)",
   };
 
   const slideOutStyle = {
     transform: "translateX(-100%)",
+  };
+
+  const checkAuth = () => {
+    if (User === null) {
+      alert("login or signup to ask a question");
+      return navigate("/Auth");
+    } else {
+      return navigate("/chatbot");
+    }
   };
 
   return (
@@ -57,9 +71,14 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
               <p>Users</p>
             </NavLink>
           </button>
-          <button onClick={() => handleSlideIn()} className="nav-btn">
+          <button
+            onClick={() => {
+              checkAuth();
+              return handleSlideIn();
+            }}
+            className="nav-btn"
+          >
             <NavLink
-              to="/chatbot"
               className="side-nav-links"
               activeclassname="active"
               style={{ paddingLeft: "40px" }}
