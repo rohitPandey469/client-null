@@ -79,7 +79,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
             className="nav-btn"
           >
             <NavLink
-              to="/chatbot"
+              to={!User ? "/Auth" : "/chatbot"}
               className="side-nav-links"
               activeclassname="active"
               style={{ paddingLeft: "40px" }}
