@@ -19,7 +19,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
 
   const checkAuth = () => {
     if (User === null) {
-      alert("login or signup to ask a question");
+      alert("login or signup to ask a question to chatbot");
       return navigate("/Auth");
     } else {
       return navigate("/chatbot");
@@ -79,7 +79,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
             className="nav-btn"
           >
             <NavLink
-              to="/"
+              to="/chatbot"
               className="side-nav-links"
               activeclassname="active"
               style={{ paddingLeft: "40px" }}
